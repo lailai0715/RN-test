@@ -51,38 +51,13 @@ export default class App extends Component {
         const { dispatch, nav } = this.props;
         // console.log(dispatch);
 
-
-
-        // const navigation = addNavigationHelpers({
-        //     dispatch,
-        //     state: nav
-        // });
-        // 如果集成了redux，screenProps这个属性就不能直接使用了。
-        // 应该是要通过action里面处理，这里只提供思路不做完善了
-        // return (
-        //     <Provider>
-        //     <View style={{flex:1}}>
-        //         <Routers screenProps={{themeColor:'yellow'}}/>
-        //         <View style={{position:'absolute',
-        //             width:width,height:20,bottom:29}}>
-        //             <View style={{height:20,width:20,borderRadius:10,
-        //                 backgroundColor:'red',marginLeft:width/3-55}}>
-        //                 <Text style={{backgroundColor:'transparent',
-        //                     alignSelf:'center',justifyContent:'center'}}>
-        //                     {this.state.badgeNumber}
-        //                 </Text>
-        //             </View>
-        //         </View>
-        //     </View>
-        //     </Provider>
-        // );
         return(
             <View style={{flex:1}}>
                 <Routers screenProps={{themeColor:'yellow'}}/>
                 <View style={{position:'absolute',
                     width:width,height:20,bottom:29}}>
                     <View style={{height:20,width:20,borderRadius:10,
-                        backgroundColor:'red',marginLeft:width/3-55}}>
+                        backgroundColor:'red',marginLeft:width/4-25}}>
                         <Text style={{backgroundColor:'transparent',
                             alignSelf:'center',justifyContent:'center'}}>
                             {this.state.badgeNumber}

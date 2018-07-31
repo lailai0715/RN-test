@@ -24,15 +24,17 @@ import {
     AsyncStorage
 } from 'react-native';
 
+import MainCtrlVCN from './MainCtrolView';
 import Test1 from './Test1.js';
 import Test2 from './Test2.js';
 import Test3 from './Test3.js';
 import Detail1 from './Detail1.js';
 import Detail2 from './Detail2.js';
 
-const ShiTuIcon = require('../resources/ShiTu.png');
-const GankIcon = require('../resources/Gank.png');
-const MainIcon = require('../resources/Main.png');
+const ManinIco = require('../resources/nav_icon_a02.png');
+const neberIcon = require('../resources/nav_icon_b02.png');
+const shopIcon = require('../resources/nav_icon_c02.png');
+const MineIcon = require('../resources/nav_icon_d02.png');
 
 /**
  * 1、Test1是通过普通的属性创建的Tabbar和导航
@@ -43,13 +45,13 @@ const MainIcon = require('../resources/Main.png');
 
 const MyTab = TabNavigator({
     Test1: {
-        screen: Test1,
+        screen: MainCtrlVCN,
         navigationOptions:({navigation,screenProps}) => ({
 
             // StackNavigator 属性部分
 
             // title:'Test1', 同步设置导航和tabbar文字,不推荐使用
-            headerTitle:'识兔', // 只会设置导航栏文字,
+            headerTitle:'首页', // 只会设置导航栏文字,
             // header:{}, // 可以自定义导航条内容，如果需要隐藏可以设置为null
             // headerBackTitle:null, // 设置跳转页面左侧返回箭头后面的文字，默认是上一个页面的标题。可以自定义，也可以设置为null
             // headerTruncatedBackTitle:'', // 设置当上个页面标题不符合返回箭头后的文字时，默认改成"返回"。
@@ -74,20 +76,25 @@ const MyTab = TabNavigator({
             tabBarIcon: (({tintColor,focused}) => {
                 return(
                     <Image
-                        source={!focused ? ShiTuIcon : ShiTuIcon}
+                        source={!focused ? ManinIco : ManinIco}
                         style={[{height:35,width:35 }, {tintColor: tintColor}]}
                     />
                 )
             }), // 设置标签栏的图标。需要单独设置。
-            tabBarLabel:'识兔', // 设置标签栏的title。推荐这个方式。
+            tabBarLabel:'首页', // 设置标签栏的title。推荐这个方式。
         })
     },
     Test2: {
         screen:Test2,
+        navigationOptions: ()=> TabOptions('邻里',neberIcon,neberIcon,'邻里'),
     },
     Test3:{
         screen:Test3,
-        navigationOptions: ()=> TabOptions('我的',MainIcon,MainIcon,'我的'),
+        navigationOptions: ()=> TabOptions('商城',shopIcon,shopIcon,'商城'),
+    },
+    Test4:{
+        screen:Test3,
+        navigationOptions: ()=> TabOptions('我的',MineIcon,MineIcon,'我的'),
     },
 },{
     tabBarPosition:'bottom', // 设置tabbar的位置，iOS默认在底部，安卓默认在顶部。（属性值：'top'，'bottom')

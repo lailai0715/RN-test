@@ -31,11 +31,9 @@ export default class Test3 extends Component {
 
     fetchData(){
         Request.get(Config.api.homeList,(data)=>{
-             // console.warn(data);
             this.setState({
                 dataSource:data,
             });
-            console.warn(dataSource);
         },(error)=>{
             console.warn(error);
         });
